@@ -17,11 +17,13 @@ console.log(namesArray.length); //2
 */
 
 function find(cities, letter){
-	var counter = 0;
-	//your code here
-	return counter;
-}
+	var counter = [];
 
+	for (let i=0 ; i<cities.length; i++){
+       if (cities[i].startsWith(letter)) counter.push(cities[i])
+}
+return counter.length;
+}
 
 const citiesArray = ["Amsterdam", "Athens", "Barcelona", "Madrid"];
 

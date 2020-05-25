@@ -5,9 +5,7 @@ const notification = document.getElementsByClassName('notification')[0];
 let weather;
 
 const kelvin = 273.15;
-kelvin=kelvin+t;
 
-getLocation();
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(onSuccess, onError);
@@ -41,7 +39,7 @@ function onSuccess(position) {
 
 function render(temp){
     let myElement = document.querySelector("#temp");
-    myElement.innerText = temp;
+    myElement.innerText = temp.main.temp;
 }
 
 function onError(error) {
@@ -54,4 +52,7 @@ function onError(error) {
     // 3. append p inside notification
     notification.appendChild(p);
 }
+
+getLocation();
+
 

@@ -101,3 +101,19 @@ var mentors = [
 
 //YOUR CODE HERE
 
+
+
+/*
+
+1. Loop through the array, and for each object, `console.log()` out the sentence only for
+mentors that are in Barcelona and one of the skills is React
+"Hi, my name is {firstName} {lastName}. I work in Barcelona and i know React."
+*/ 
+
+function Hello(mentor){
+  console.log(
+    'Hi, my name is' + mentor.firstName + " " + mentor.lastName + "." + " I work in Barcelona and I know React."
+);
+
+}
+
