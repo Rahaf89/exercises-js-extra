@@ -22,6 +22,29 @@
       <div id="all-movies">
         <p class="alert alert-info">Number of movies: <span id="movies-number"></span></p>
       </div>
+      <form>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" placeholder="Movie title">
+        </div>
+        <div class="form-group">
+          <label for="director">Director</label>
+          <input type="text" class="form-control" id="director" placeholder="Movie director">
+        </div>
+        <div class="form-group">
+          <label for="type">Type</label>
+          <input type="text" class="form-control" id="type" placeholder="Movie type">
+        </div>
+        <div class="form-group">
+          <label for="type">Have watched</label>
+           <select id="haveWatched" class="form-control">
+            <option selected>Choose...</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+        <button type="button"class="btn btn-primary" id = "saveMovie">Save</button>
+      </form>
     </div>
     <script src="exercise.js"></script>
 </body>

@@ -42,25 +42,68 @@ var product2 = {
   stock: 2
 };
 
+var product3 = {
+  id: 3,
+  name: "Watch Diesel",
+  price: 10.99,
+  stock: 4
+};
+var product4 = {
+  id: 4,
+  name: "Toaster Black",
+  price: 7.99,
+  stock: 1
+};
+
 products.push(product1);
 products.push(product2);
+products.push(product3);
+products.push(product4);
 
 var shoppingCart = {
   totalPrice: 0,
   selectedProducts: []
 };
 
-function addToShoppingCart(id){
 
+function addToShoppingCart(id) {
+
+  for(i=0; i<products.length;i++){
+    if(products[i].id==id){
+       if(products[i].stock>0){
+ shoppingCart.selectedProducts.push(products[i]);
+ shoppingCart.totalPrice=shoppingCart.totalPrice + products[i].price;
+        products[i].stock -=1;
 }
+        break;
+      }
+   }
+}
+
+
 
 function removeFromShoppingCart(id){
+for (let i=0; i<shoppingCart.selectedProducts.length; i++){
+  if(shoppingCart.selectedProducts[i].id===id){
+    shoppingCart.selectedProducts.splice(i, 1);
+    shoppingCart.totalPrice-=shoppingCart.selectedProducts[i].price;
+ for (let j=0; j<products.length; j++){
+    if(products[j].id == id){
+      products[j]+=1;
+  }}
 
+break;
+  }
 }
+}
+
 
 function shop(){
+  shoppingCart.totalPrice =0;
+  shoppingCart.selectedProducts = [];
 
 }
+
 
 //results
 addToShoppingCart(1);

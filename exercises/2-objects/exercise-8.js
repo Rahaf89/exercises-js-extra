@@ -110,10 +110,69 @@ mentors that are in Barcelona and one of the skills is React
 "Hi, my name is {firstName} {lastName}. I work in Barcelona and i know React."
 */ 
 
-function Hello(mentor){
-  console.log(
-    'Hi, my name is' + mentor.firstName + " " + mentor.lastName + "." + " I work in Barcelona and I know React."
-);
+// 1
 
+console.log("Exercise 1 with loops")
+
+for (let i = 0; i < mentors.length; i++) {
+    if (mentors[i].job.city === "Barcelona" && mentors[i].skills.includes("React")) {
+        console.log(`Hi, my name is ${mentors[i].firstName} ${mentors[i].lastName}. I work in Barcelona and i know React.`)
+    }
 }
+
+console.log("Exercise 1 with arrays (filter)")
+// Remember that function filter for an array will get a con dition and will keep the elements of the array which met such condition
+const filteredArray = mentors.filter(mentor => mentor.skills.includes("React") && mentor.job.city === "Barcelona");
+filteredArray.forEach(
+    mentorInBarcelonaWithReact => console.log(`Hi, my name is ${mentorInBarcelonaWithReact.firstName} ${mentorInBarcelonaWithReact.lastName}. I work in Barcelona and i know React.`)
+)
+
+console.log("Exercise 2 with loops")
+
+for (let i = 0; i < mentors.length; i++) {
+    if (mentors[i].job.city === "Barcelona") {
+        mentors[i].class = "Jun1";
+        if (!mentors[i].skills.includes("SQL")) {
+            mentors[i].skills.push("SQL");
+        }
+
+        console.log(`Hi, my name is ${mentors[i].firstName} ${mentors[i].lastName}. I work in Barcelona. Class is ${mentors[i].class} and skills ${mentors[i].skills}`)
+    }
+}
+
+console.log("Exercise 2 with arrays (filter)")
+const filteredArray2 = mentors.filter(mentor => mentor.job.city === "Barcelona");
+filteredArray.forEach(
+    mentorInBarcelona => {
+        mentorInBarcelona.class = "Jun1";
+        if (mentorInBarcelona.skills.includes("SQL")) {
+            mentorInBarcelona.skills.push("SQL")
+        }
+    }
+)
+
+// Exercise 3. Function to add a skill
+// As a reminder can build a function by assigning to a variable a function
+let addSkill = (listOnMentors, skillToAdd) => {
+    for (let i = 0; i < listOnMentors.length; i++) {
+        if (!listOnMentors[i].skills.includes(skillToAdd)) {
+            listOnMentors[i].skills.push(skillToAdd);
+        }
+    }
+}
+
+function mentorWithMoreSkills(listOnMentors) {
+    let mentorWithMaxSkills = null;
+    let maxSkills = 0;
+    for (let i = 0; i < listOnMentors.length; i++) {
+        if (listOnMentors[i].skills.length >= maxSkills) {
+            maxSkills = listOnMentors[i].skills.length;
+            mentorWithMaxSkills = listOnMentors[i];
+        }
+    }
+    return mentorWithMaxSkills;
+}
+
+let mentorA = mentorWithMoreSkills(mentors);
+console.log(`Mentor with more skills is ${mentorA.firstName}`)
 
